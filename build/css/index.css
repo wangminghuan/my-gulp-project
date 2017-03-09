@@ -6,6 +6,7 @@ ul,li{
 #example{
 text-decoration: underline;
 color: yellow;
+display: -ms-flexbox;
 display: flex;
 background: url(../img/02.jpg);
 }
@@ -34,4 +35,13 @@ background: url(../img/s-06.png);
 }
 .sprit li:nth-of-type(7){
 background: url(../img/s-07.png);
+}
+
+.ep2{
+	height: 600px;
+	width: 200px;
+	background-image: url("../img/bg01.jpg");
+	background-repeat: repeat-y;
+	display: -ms-flexbox;
+	display: flex;
 }

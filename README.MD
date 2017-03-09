@@ -5,22 +5,26 @@
 
 	npm install
 
-开启express服务，浏览器自动跳转到http://localhost:3000
+开启本地web服务，浏览器自动跳转到http://localhost:8000
 
-    npm run start
+    gulp watch
 
-自动刷新
+自动刷新,css支持热更新注入，js则会强制刷新。且会在根目录的index文件中注入最终打包后的文件路径（css 和 js）。
+
 ### 2 构建
 运行
 
-    npm run build
+    gulp build
 
-自动在build目录生成压缩后的js文件和css文件。css默认补全前缀
+自动在build目录生成压缩后的js文件和css文件(同名文件，有后缀-min)。css默认补全前缀，同时会压缩图片，也在build目录
 
-### 3 项目结构
-待补充
 
 ### 4 其他说明
 
-1. 比较粗糙的gulp构建，可以与webpack组合使用。
-2. 继续调研中~
+1. 支持ES6语法和模块化开发，模块化打包是基于rollup构建的。
+2. 支持雪碧图和合成，运行
+
+        npm sprite
+会在`build/img`下生成最终合成的雪碧图和`sprite-style.css`文件，和自己代码做融合即可，要合成的雪碧图碎片以及最终生成的css样式支持定制化开发，请在`gulp_task/sprite.js`中进行修改。
+3. 目前已知道问题：src/img下的图片必须在构建前复制到build/img中一份，因为文件开发过程中引入的一直都是构建好的文件，所以img路径也会相应变化
+4. 每次保存都会构建一遍，然后刷新，目前暂不知道对于大型开发速度如何，小型开发构建速度尚可接受。如果不需要每次都构建一遍，需要重新修改配置文件。
