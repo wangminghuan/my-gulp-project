@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'), //png图片压缩插件
-    spriter = require('gulp-css-spriter'),
     spritesmith = require('gulp.spritesmith');
 
 //引入文件路径配置

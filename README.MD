@@ -20,7 +20,7 @@ inject模式，支持覆盖和重新擦写，每次开启服务都会将模板�
 
 ### 生成雪碧图
 
-        npm sprite
+    npm sprite
 会在`build/img`下生成最终合成的雪碧图和`sprite-style.css`文件，要合成的雪碧图碎片以及最终生成的css样式支持定制化开发，请在`gulp_task/sprite.js`中进行修改。缺点是：需要手动与自己代码做融合。优点是：该功能与项目并不耦合，图片和样式可随意使用。
 
 ### 压缩文件 
@@ -29,6 +29,24 @@ inject模式，支持覆盖和重新擦写，每次开启服务都会将模板�
 
 自动压缩build目录下的js,cs文件，同时加上后缀`.min`。将img文件下的图片压缩，输出到`img-min`目录下。
 
+### 模拟后端数据
+开启web服务时，启动即可，默认不启动。
+
+**访问数据**
+server目录下json文件即为相关的模拟数据。直接访问：
+
+	http://localhost:3000/mock
+即可得到数据（端口可配置，在`gulp_task/mock.js`下修改）
+
+**启动路由**
+
+通过`server/mock.router.js`进行分发，通过id访问对应数据
+
+	http://localhost:8001/mock.router?id=123
+
+也可以直接访问该文件（其实被解析为json文件）
+
+	http://localhost:8001/mock.router
 ## 项目结构
 
 
@@ -68,8 +86,10 @@ inject模式，支持覆盖和重新擦写，每次开启服务都会将模板�
 │   ├── watch.js             # gulp任务配置-监听任务
 │   └── watch.b.js           # gulp任务配置-监听任务B
 │
-├── server                   # 后端接口
-│   └── view                 # 服务端模板
+├── server                   # 模拟后端接口数据
+│      ├── mock.json         
+│      ├── mock-a.js
+│      └── mock.router.js    # 模拟数据路由配置        
 │
 ├── config                   # 项目资源路径配置文件
 │
