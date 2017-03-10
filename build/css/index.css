@@ -8,6 +8,7 @@ text-decoration: underline;
 color: yellow;
 display: -ms-flexbox;
 display: flex;
+height: 40px;
 background: url(../img/02.jpg);
 }
 .sprit li{

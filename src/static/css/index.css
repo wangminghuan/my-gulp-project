@@ -7,6 +7,7 @@ ul,li{
 text-decoration: underline;
 color: yellow;
 display: flex;
+height: 40px;
 background: url(../img/02.jpg);
 }
 .sprit li{

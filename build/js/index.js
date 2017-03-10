@@ -3,14 +3,11 @@
 (function () {
   'use strict';
 
-  var text = "<h2>Hello World!!66666</h2>";
+  /*import {text} from "./static/js/mod.js";
+  document.getElementById("example").innerHTML=text;
+  
+  var f= v=> v+50;
+  console.log(f(20))*/
 
-  console.log('mod.js  is loads, nice and good!!');
-
-  document.getElementById("example").innerHTML = text;
-
-  var f = function f(v) {
-    return v + 50;
-  };
-  console.log(f(20));
+  console.log('index.js is load!!');
 })();
