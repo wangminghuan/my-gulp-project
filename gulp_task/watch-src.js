@@ -20,7 +20,7 @@ gulp.task('inject-css-js', function() {
         .pipe(gulp.dest('./')); //模版输出路径
 });
 // 静态服务器 + 监听 scss/html 文件
-gulp.task('watch-b-task', ['reload-css', "inject-css-js"], function() {
+gulp.task('watch-src-task', ['reload-css', "inject-css-js"], function() {
     browserSync.init({
         port: 8001,
         server: {

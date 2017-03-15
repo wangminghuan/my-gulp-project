@@ -1,1 +1,1 @@
-console.log('util.js is loadss!!')
+console.log('util.js is load!!')

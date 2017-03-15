@@ -37,11 +37,10 @@ gulp.task('optimize-css', function() {
 });
 
 //如果模板路径变动，请在此处修改 入口&&出口
-gulp.task('inject-js-css', function() {
+gulp.task('inject-js-css',['optimize-js','optimize-css','compress-img'], function() {
     var target = gulp.src('index.html'); //模板入口资源
     // It's not necessary to read the files (will speed up things), we're only after their paths: 
     var sources = gulp.src([filePath.build + '/js/*.js', filePath.build + '/css/*.css'], { read: false });
-
     return target.pipe(inject(sources))
         .pipe(gulp.dest('./')); //模版输出路径
 });
@@ -52,7 +51,7 @@ gulp.task('inject-js-css', function() {
 gulp.task('watch-js', ['optimize-js'], browserSync.reload);
 
 // 静态服务器 + 监听 scss/html 文件
-gulp.task('watch-task', ['optimize-js', 'optimize-css', "inject-js-css"], function() {
+gulp.task('watch-build-task', ['inject-js-css'], function() {
     browserSync.init({
         port: 8000,
         server: {
