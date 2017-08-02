@@ -4,7 +4,7 @@ var path=require('path');
 var requireDir = require('require-dir');
 
 //加载所有gulp任务
-requireDir('./gulp_task');
+requireDir('./gulptask');
 
 //压缩资源
 gulp.task('build', ['build-task']);

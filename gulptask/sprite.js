@@ -1,3 +1,4 @@
+//暂时无用
 var gulp = require('gulp');
 // var spritesmith = require('gulp.spritesmith');
 //var spriter = require('gulp-css-spriter');
