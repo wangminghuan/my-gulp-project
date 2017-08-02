@@ -16,7 +16,7 @@ gulp.task('watch', ['watch-build-task']);
 gulp.task('watch-src', ['watch-src-task'/*,"mock"*/]);
 
 //雪碧图合成
-gulp.task('sprite', ['sprite-task'/*,"mock"*/]);
+// gulp.task('sprite', ['sprite-task'/*,"mock"*/]);
 
 //模拟数据，如果需要模拟数据请添加mock任务即可
 //相关mock配置请在gulp_task/mock.js下修改

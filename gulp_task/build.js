@@ -3,8 +3,7 @@ var gulp = require('gulp'),
     cleanCss = require('gulp-clean-css'),
     rename = require('gulp-rename'),
     imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'), //png图片压缩插件
-    spritesmith = require('gulp.spritesmith');
+    pngquant = require('imagemin-pngquant'); //png图片压缩插件
 
 //引入文件路径配置
 var filePath = require("../config.js");

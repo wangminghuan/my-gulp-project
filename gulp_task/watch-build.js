@@ -7,7 +7,9 @@ var gulp = require('gulp'),
     inject = require('gulp-inject'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
-    autoprefixer = require("gulp-autoprefixer");
+    autoprefixer = require("gulp-autoprefixer"),
+    sass = require('gulp-sass'),
+    cssimport = require("gulp-cssimport");
 
 var filePath = require("../config.js");
 
@@ -25,21 +27,33 @@ gulp.task('optimize-js', function() {
 
 });
 
-gulp.task('optimize-css', function() {
-    return gulp.src(filePath.CSSPath + "/*.css")
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(concat('index.css'))
-        .pipe(gulp.dest(filePath.build + '/css'))
-        .pipe(reload({ stream: true }));
+gulp.task('optimize-sass', function () {
+ return gulp.src(filePath.CSSPath + "/index.scss")
+   .pipe(cssimport({}))
+   .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+   .pipe(autoprefixer({
+       browsers: ['last 2 versions'],
+       cascade: false
+   }))
+   .pipe(concat('index.css'))
+   .pipe(gulp.dest(filePath.build + '/css'))
+   .pipe(reload({ stream: true }));
 });
+// gulp.task('optimize-css', function() {
+//     return gulp.src(filePath.CSSPath + "/*.css")
+//         .pipe(autoprefixer({
+//             browsers: ['last 2 versions'],
+//             cascade: false
+//         }))
+//         .pipe(concat('index.css'))
+//         .pipe(gulp.dest(filePath.build + '/css'))
+//         .pipe(reload({ stream: true }));
+// });
 
 //如果模板路径变动，请在此处修改 入口&&出口
-gulp.task('inject-js-css',['optimize-js','optimize-css','compress-img'], function() {
+gulp.task('inject-js-css',['optimize-js','optimize-sass','compress-img'], function() {
     var target = gulp.src('index.html'); //模板入口资源
-    // It's not necessary to read the files (will speed up things), we're only after their paths: 
+    // It's not necessary to read the files (will speed up things), we're only after their paths:
     var sources = gulp.src([filePath.build + '/js/*.js', filePath.build + '/css/*.css'], { read: false });
     return target.pipe(inject(sources))
         .pipe(gulp.dest('./')); //模版输出路径
@@ -59,6 +73,6 @@ gulp.task('watch-build-task', ['inject-js-css'], function() {
         }
     });
     gulp.watch([filePath.entry, filePath.JSPath + '/*.js'], ['watch-js']);
-    gulp.watch(filePath.CSSPath + '/*.css', ['optimize-css']);
+    gulp.watch(filePath.CSSPath + '/*.scss', ['optimize-sass']);
     gulp.watch(['*.html', filePath.HTMLPath + '/*.html']).on('change', reload);
 });
