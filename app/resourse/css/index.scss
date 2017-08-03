@@ -1,6 +1,6 @@
-@import "../../common/css/reset.css";
+@import "../../common/reset.css";
 
-@import "../../common/css/pxToRem.scss";
+@import "../../common/pxToRem.scss";
 .bg {
     width:  pxToRem(320px);
     height: pxToRem(57px);
