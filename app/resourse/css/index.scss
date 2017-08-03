@@ -1,7 +1,7 @@
-@import "../../common/pxToRem.scss";
-@import "../../common/reset.css";
+@import "../../common/css/reset.css";
 
-#example {
+@import "../../common/css/pxToRem.scss";
+.bg {
     width:  pxToRem(320px);
     height: pxToRem(57px);
     background-image: url(../img/01.png);

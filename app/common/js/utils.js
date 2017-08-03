@@ -1,7 +1,7 @@
 /**
  * @module  browserInfo
  * @description 获取浏览器UA标识
- */
+ **/
 export
 var browserInfo = (function() {
         var regExp = {
@@ -29,4 +29,4 @@ var browserInfo = (function() {
             }
         }
         return source;
-    })()
+    })();

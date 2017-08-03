@@ -81,7 +81,7 @@ iframe {
   overflow: hidden;
   display: none; }
 
-#example {
+.bg {
   width: 10rem;
   height: 1.78125rem;
   background-image: url(../img/01.png);
@@ -89,5 +89,5 @@ iframe {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
-  #example .txt {
+  .bg .txt {
     display: none; }
