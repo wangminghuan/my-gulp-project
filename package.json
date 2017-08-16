@@ -12,6 +12,7 @@
     "gulp-babel": "^7.0.0",
     "gulp-clean-css": "^3.7.0",
     "gulp-concat": "^2.6.1",
+    "gulp-css-url-adjuster": "^0.2.3",
     "gulp-cssimport": "^5.0.0",
     "gulp-html-replace": "^1.6.2",
     "gulp-imagemin": "^3.3.0",
@@ -21,6 +22,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.14.0",
     "gulp-sass": "^3.1.0",
+    "gulp-tinypng-compress": "^1.2.1",
     "gulp-uglify": "^3.0.0",
     "imagemin-pngquant": "^5.0.1",
     "require-dir": "^0.3.2"
@@ -44,5 +46,8 @@
     "url": "https://github.com/wangminghuan/my-gulp-project/issues"
   },
   "homepage": "https://github.com/wangminghuan/my-gulp-project#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "gulp-rev-collector": "^1.2.2"
+  }
 }

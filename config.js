@@ -8,6 +8,6 @@ var __path={
 	JSPath:path.resolve(__dirname,"app/resourse/js"),//js目录
 	CSSPath:path.resolve(__dirname,"app/resourse/css"),//css目录
 	IMGPath:path.resolve(__dirname,"app/resourse/img"),//image目录
-	publicPath:path.resolve(__dirname,"../publish")//发布资源目录，资源构建完成后的输出目录
+	publicPath:path.resolve(__dirname,"./publish")//发布资源目录，资源构建完成后的输出目录
 };
 module.exports=__path;
