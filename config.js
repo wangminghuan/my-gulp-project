@@ -1,6 +1,7 @@
 //项目路径设置
 var path=require('path');
 var __path={
+	appPath:path.resolve(__dirname,"app"),//app目录
 	entry: path.resolve(__dirname,"app/index.js"),//入口js
 	build: path.resolve(__dirname,"build"),//构建目录
 	HTMLPath:path.resolve(__dirname,"view"),//html目录

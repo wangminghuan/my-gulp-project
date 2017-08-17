@@ -9,17 +9,22 @@ var gulp = require('gulp'),
 var filePath = require("../config.js");
 
 gulp.task('uglify-js', ['optimize-js'], function() {
-  return gulp.src(filePath.build + "/js/*.js")
+  return gulp.src(filePath.appPath + '/bundle.js')
   .pipe(uglify())//不需要压缩请注释掉本行
-  .pipe(rename({suffix: '.min'}))
+  .pipe(rename({
+    basename:'index',
+    suffix: '.min'
+  }))
   .pipe(gulp.dest(filePath.publicPath + "/js/"))
 
 });
-
 gulp.task('uglify-css', ['optimize-sass'], function() {
-  return gulp.src(filePath.build + "/css/*.css")
+  return gulp.src(filePath.CSSPath + '/bundle.css')
   .pipe(cleanCss())//不需要压缩请注释掉本行
-  .pipe(rename({suffix: '.min'}))
+  .pipe(rename({
+    basename:'index',
+    suffix: '.min'
+  }))
   .pipe(gulp.dest(filePath.publicPath + "/css/"))
 });
 

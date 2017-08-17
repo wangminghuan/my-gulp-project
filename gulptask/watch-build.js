@@ -22,7 +22,8 @@ gulp.task('optimize-js', function() {
   //选用rollup插件处理模块化
  .pipe(rollup({entry: filePath.entry, format: 'iife'}))
  .pipe(babel())
- .pipe(gulp.dest(filePath.build + '/js'))
+ .pipe(rename("bundle.js"))
+ .pipe(gulp.dest(filePath.appPath))
 
 });
 
@@ -39,8 +40,8 @@ gulp.task('optimize-sass', function() {
     //        transform: rotate(45deg);
     remove: true //是否去掉不必要的前缀 默认：true
   }))
-  .pipe(concat('index.css'))
-  .pipe(gulp.dest(filePath.build + '/css'))
+  .pipe(concat('bundle.css'))
+  .pipe(gulp.dest(filePath.CSSPath))
   .pipe(reload({stream: true}));
 });
 
@@ -49,8 +50,8 @@ gulp.task('inject-js-css', ['optimize-js', 'optimize-sass'], function() {
   var target = gulp.src('index.html'); //模板入口资源
   // It's not necessary to read the files (will speed up things), we're only after their paths:
   var sources = gulp.src([
-    filePath.build + '/js/*.js',
-    filePath.build + '/css/*.css'
+    filePath.appPath + '/bundle.js',
+    filePath.CSSPath + '/bundle.css'
   ], {read: false});
   return target.pipe(inject(sources))
   .pipe(gulp.dest('./')); //模版输出路径
